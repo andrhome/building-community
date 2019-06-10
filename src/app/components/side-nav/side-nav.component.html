@@ -1,0 +1,112 @@
+<mat-sidenav-container
+  (backdropClick)="hideSideNav()"
+  [ngClass]="{
+  'mobile-view': mobileQuery.matches,
+  'mat-drawer-opened': isSidenavOpened
+  }">
+  <mat-sidenav #snav
+               [mode]="mobileQuery.matches ? 'over' : 'side'"
+               [opened]="isSidenavOpened"
+               fixedInViewport="true"
+               class="side-nav">
+    <div class="nav-block">
+      <button
+        type="button"
+        class="side-nav__hide-btn"
+        (click)="toggleSideNav()">
+        <svg-icon-sprite src="assets/images/sprites/sprite.svg#short-left-arrow"
+                         class="svg-icon-sprite"></svg-icon-sprite>
+      </button>
+      <div class="side-nav__logo">
+        <i class="logo-icon">
+          <svg-icon-sprite src="assets/images/sprites/sprite.svg#nav-logo" class="svg-icon-sprite"></svg-icon-sprite>
+        </i>
+        <span class="logo-name">Adhance.io</span>
+      </div>
+      <div class="side-nav__user-box">
+        <div class="user-info" *ngIf="userData">
+          <div class="user-photo-holder"
+               (click)="mobileQuery.matches && showUserMenu()"
+               (mouseover)="!mobileQuery.matches && showUserMenu()"
+               (mouseleave)="!mobileQuery.matches && hideUserMenu()">
+            <div class="user-photo" [ngStyle]="{'background-image': 'url(' + (userData.image ? userData.image.path : 'assets/images/default-photo.jpg') + ')'}"></div>
+            <div class="user-status">
+              <svg-icon-sprite src="assets/images/sprites/sprite.svg#arrow-down" class="svg-icon-sprite"></svg-icon-sprite>
+            </div>
+            <bc-menu *ngIf="isUserMenuOpened"
+                      [menuItems]="userMenuItems"
+                      [menuConfig]="userMenuConfig"
+                      [triangleConfig]="userMenuTrConfig"
+                      (onLinkActivated)="hideSideNav($event)"></bc-menu>
+          </div>
+          <div class="user-name" *ngIf="userData.firstName || userData.lastName">{{userData.firstName}} {{userData.lastName}}</div>
+          <div class="user-name user-name--default" *ngIf="!(userData.firstName || userData.lastName)">Your name</div>
+        </div>
+        <div class="user-license">Free Trial</div>
+        <button type="button" class="btn btn--success">Upgrade plan</button>
+      </div>
+      <ul class="side-nav__menu">
+        <li *ngFor="let linkItem of navigationLinks"
+            class="side-nav__menu-item">
+          <a routerLink="{{linkItem.link}}"
+             routerLinkActive="active"
+             (click)="mobileQuery.matches && snav.close()">
+            <i class="fa {{linkItem.iconClass}} menu-icon"></i>
+            {{linkItem.title}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ul class="side-nav__sub-menu">
+      <li class="side-nav__sub-menu-item">
+        <div class="side-nav__sub-menu-item__link"
+             (mouseover)="!mobileQuery.matches && showHelpMenu()"
+             (mouseleave)="!mobileQuery.matches && hideHelpMenu()"
+             (click)="mobileQuery.matches && showHelpMenu()">
+          <span class="text-holder">
+            <i class="question-circle">?</i>
+            Help
+          </span>
+          <i class="play-arrow-right">
+            <svg-icon-sprite src="assets/images/sprites/sprite.svg#play-button"
+                             class="svg-icon-sprite"></svg-icon-sprite>
+          </i>
+          <bc-menu *ngIf="isHelpMenuOpened"
+                    [menuItems]="helpMenuItems"
+                    [menuConfig]="helpMenuConfig"
+                    [customClass]="'help-menu'"
+                    [triangleConfig]="helpMenuTrConfig"
+                    (onLinkActivated)="hideSideNav($event)"></bc-menu>
+        </div>
+      </li>
+      <li class="side-nav__sub-menu-item">
+        <a href="#" class="side-nav__sub-menu-item__link">
+          <span class="text-holder">
+            <i class="fa fa-bell-o"></i>
+            Upgrades
+          </span>
+        </a>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content class="side-nav__content">
+    <div class="side-nav__header">
+      <a routerLink="/alerts" routerLinkActive="active" class="header-link divider">
+        <i class="bell-icon">
+          <svg-icon-sprite src="assets/images/sprites/sprite.svg#bell" class="svg-icon-sprite"></svg-icon-sprite>
+        </i>
+        Alerts
+      </a>
+      <a routerLink="/rules" routerLinkActive="active" class="header-link">
+        <i class="check-circle-icon">
+          <svg-icon-sprite src="assets/images/sprites/sprite.svg#check-circle"
+                           class="svg-icon-sprite"></svg-icon-sprite>
+        </i>
+        Rules
+      </a>
+    </div>
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,25 @@
+<div class="menu-holder"
+     [ngClass]="customClass"
+     [ngStyle]="{
+        'top': menuConfig.top,
+        'bottom': menuConfig.bottom,
+        'right': menuConfig.right,
+        'left': menuConfig.left
+        }">
+  <div class="triangle" [ngStyle]="{
+        'top': triangleConfig.top,
+        'bottom': triangleConfig.bottom,
+        'right': triangleConfig.right,
+        'left': triangleConfig.left,
+        'transform': 'rotate(' + triangleConfig.rotateDeg + ')'
+        }"></div>
+  <ul class="menu" [ngStyle]="{'width': menuConfig.width}">
+    <li (click)="onLinkClick($event)" class="menu__item" *ngFor="let item of menuItems">
+      <a [routerLink]="item.link" class="menu__link">
+        <i class="fa menu__icon" [ngClass]="item.icon"></i>
+        {{item.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="menu-overlay"></div>

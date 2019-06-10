@@ -1,0 +1,47 @@
+<div class="form-wrapper light-theme">
+  <h2 class="sign-in-title text-center">Sign In</h2>
+  <form
+    class="form"
+    (ngSubmit)="submit()"
+    [formGroup]="signInForm">
+    <mat-form-field floatLabel="never" class="form-field" [ngClass]="{'mat-form-field-invalid': invalidCredentials}">
+      <mat-placeholder>Your email...</mat-placeholder>
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+        required>
+      <mat-error>{{errorMessageHandle(signInForm, 'email')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field floatLabel="never" class="form-field" [ngClass]="{'mat-form-field-invalid': invalidCredentials}">
+      <mat-placeholder>Your password...</mat-placeholder>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        required>
+      <mat-error>{{errorMessageHandle(signInForm, 'password')}}</mat-error>
+    </mat-form-field>
+    <!--<div class="form-help-block text-right">-->
+      <!--<mat-checkbox formControlName="keepMeLogged">Keep me logged</mat-checkbox>-->
+      <!--<a routerLink="/reset-password" class="underline-link">Forgot Password?</a>-->
+    <!--</div>-->
+    <div class="btn-holder text-center">
+      <button
+        mat-raised-button
+        [disabled]="signInForm.invalid"
+        class="btn btn--main">Login</button>
+      <div class="or">Or</div>
+      <button
+        type="button"
+        class="btn btn--fb"
+        (click)="auth.FBsignIn()">
+        <i class="fa fa-facebook-square"></i>
+        Login with Facebook
+      </button>
+    </div>
+    <div class="have-account text-center">
+      <p>Don’t have an account? <a routerLink="/sign-up" class="underline-link">Sign Up for Free</a></p>
+    </div>
+  </form>
+</div>

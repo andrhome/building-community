@@ -1,0 +1,47 @@
+<div class="form-wrapper light-theme">
+  <h2 class="sign-in-title text-center">Sign Up</h2>
+  <form
+    class="form"
+    (ngSubmit)="submit()"
+    [formGroup]="signUpForm">
+    <mat-form-field floatLabel="never" class="form-field" [ngClass]="{'mat-form-field-invalid': invalidCredentials}">
+      <mat-placeholder>Your email...</mat-placeholder>
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+        required>
+      <mat-error>{{errorMessageHandle(signUpForm, 'email')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field floatLabel="never" class="form-field" [ngClass]="{'mat-form-field-invalid': invalidCredentials}">
+      <mat-placeholder>Your password...</mat-placeholder>
+      <input
+        matInput
+        type="password"
+        formControlName="plainPassword"
+        required>
+      <mat-error>{{errorMessageHandle(signUpForm, 'plainPassword')}}</mat-error>
+    </mat-form-field>
+    <!--<div class="form-help-block text-right">-->
+    <!--<mat-checkbox formControlName="keepMeLogged">Keep me logged</mat-checkbox>-->
+    <!--<a routerLink="/reset-password" class="underline-link">Forgot Password?</a>-->
+    <!--</div>-->
+    <div class="btn-holder text-center">
+      <p>
+        <mat-checkbox
+          formControlName="agreeTerms"
+          required>
+        </mat-checkbox>
+        By signing up, I agree to <a href="#" class="underline-link">Adhance's terms</a> and <a href="#"
+                                                                                                class="underline-link">Privacy Policy</a>.
+      </p>
+      <button
+        mat-raised-button
+        [disabled]="signUpForm.invalid"
+        class="btn btn--main">Register</button>
+    </div>
+    <div class="have-account text-center">
+      <p>Already have an account? <a routerLink="/sign-in" class="underline-link">Sign In</a></p>
+    </div>
+  </form>
+</div>

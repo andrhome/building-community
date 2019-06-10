@@ -1,0 +1,27 @@
+@import 'variables';
+
+@mixin media-screen($screen-size) {
+  @media screen and (max-width: $screen-size) { @content; }
+}
+
+@mixin media-min-screen($screen-size) {
+  @media screen and (min-width: $screen-size) { @content; }
+}
+
+@mixin background-cover($color) {
+  background-color: $color or $white-color;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin translate-to-center() {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+@mixin transition($prop: '', $time: '.2s') {
+  transition: #{$prop} #{$time} ease-in-out;
+}

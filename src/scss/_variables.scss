@@ -1,0 +1,49 @@
+$base-font: 'Open Sans', sans-serif;
+$nunito-font: 'Nunito', sans-serif;
+
+$base-font-size: 2.6rem;
+$desktop-font-size: 1.4rem;
+$mobile-font-size: 12px;
+
+// Main palette colors
+$palette-color-1: #f7ce3e;
+$palette-color-1--2: #f9ab15;
+$palette-color-2: #1a2930;
+$palette-color-2--2: #1c3d4c;
+$palette-color-3: #0a1612;
+$palette-color-4: #c5c1c0;
+$main-gradient: linear-gradient(135deg, #1a2930 0%, #1b2f38 40%, #183d4e 70%, #3d5b69 100%);
+$sub-gradient: linear-gradient(135deg, #f9ab15 0%, #eab143 50%, #f8d23a 100%);
+$sub-gradient-revert: linear-gradient(135deg, #f8d23a 0%, #eab143 50%,#f9ab15 100%);
+
+// Subcolors
+$white-color: #fff;
+$black-color: #000;
+$text-color: #222;
+$text-color-2: #63646f;
+$error-color: #f44336;
+$border-color: #b1b1b1;
+$border-light-color: #f5f5f5;
+$btn-default-color: #bbbbbb;
+$light-blue-border: rgba($white-color, .3);
+$light-bg: #eef2f5;
+$fb-color: #4267b2;
+$auth-overlay: #bbb;
+
+$border-radius: 6px;
+$border-radius-small: 3px;
+$border-radius-big: 8px;
+$transition: .2s ease-in-out;
+$light-shadow: 0 3px 1px -2px rgba(70,70,70, .2), 0 2px 12px 1px rgba(120,120,120, .2), 0 1px 5px 0 rgba(70,70,70, .12);
+$light-shadow-2: 0 3px 35px -8px rgba(2, 3, 3, .07);
+
+$light: 300;
+$normal: 400;
+$semi-bold: 600;
+$bold: 700;
+
+$small: 480px;
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1280px;
+$large: 1366px;

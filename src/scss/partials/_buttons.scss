@@ -1,0 +1,202 @@
+@import "../variables";
+
+.btn {
+  display: inline-block;
+  font-size: 2.1rem;
+  text-align: center;
+  color: $white-color;
+  border-radius: $border-radius;
+  white-space: nowrap;
+  padding: 1.8rem 2rem;
+  transition: .2s ease-in-out;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .7;
+  }
+  &.mat-raised-button {
+    line-height: normal;
+    border-radius: $border-radius;
+    padding: 1.8rem 2rem;
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+  .mat-button-wrapper {
+    color: $white-color;
+  }
+  &--main {
+    background: $sub-gradient;
+    &:hover {
+      background: $sub-gradient-revert;
+    }
+    &:disabled {
+      &:hover {
+        background: $sub-gradient;
+      }
+    }
+    &.mat-raised-button {
+      &:not([class*=mat-elevation-z]) {
+        box-shadow: $light-shadow;
+      }
+    }
+  }
+  &--success {
+    font-size: 1.4rem;
+    font-weight: $normal;
+    background: $palette-color-2;
+    border-radius: $border-radius-big;
+    padding: 1rem 2rem 1.1rem;
+    @include media-screen($mobile) {
+      font-size: 1.6rem;
+      padding: 1.3rem 2.5rem;
+    }
+    &:hover {
+      background: $palette-color-2--2;
+    }
+    .plus {
+      font-weight: $normal;
+      position: relative;
+      top: 4px;
+    }
+  }
+  &--primary {
+    min-width: 16.5rem;
+    font-size: 1.4rem;
+    font-weight: $semi-bold;
+    color: $palette-color-1;
+    background: transparent;
+    border: 1px solid $palette-color-1;
+    border-radius: $border-radius-small;
+    padding: 1.1rem 2.5rem;
+    @include media-screen($mobile) {
+      font-size: 1.6rem;
+      padding: 1.3rem 2.5rem;
+    }
+    &:hover {
+      color: $white-color;
+      background: $palette-color-1;
+    }
+  }
+  &--default {
+    font-size: 1.4rem;
+    font-weight: $semi-bold;
+    color: $white-color;
+    background: $btn-default-color;
+    border-radius: $border-radius-small;
+    padding: 1.1rem 2.5rem;
+    @include media-screen($mobile) {
+      font-size: 1.6rem;
+      padding: 1.3rem 2.5rem;
+    }
+    &:hover {
+      color: $white-color;
+      background: darken($btn-default-color, 10%);
+    }
+  }
+  &--fb {
+    color: $fb-color;
+    background: transparent;
+    border: 1px solid $fb-color;
+    padding: 1.7rem 2rem;
+    &:hover {
+      color: $white-color;
+      background: $fb-color;
+    }
+  }
+  &--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &--action {
+    .mat-button-wrapper {
+      color: $text-color;
+      font-size: 19px;
+    }
+  }
+}
+
+.light-theme {
+  .btn--main {
+    &.mat-raised-button {
+      &.mat-accent {
+        .mat-ripple-element {
+          background: rgba(darken($palette-color-2, 20%), .3);
+        }
+      }
+    }
+  }
+  .mat-checkbox-checked {
+    &.mat-accent {
+      .mat-checkbox-background {
+        background: $palette-color-2;
+      }
+    }
+  }
+  .toggle-group {
+    box-shadow: none;
+    @include media-screen($mobile) {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .mat-button-toggle {
+      color: $white-color;
+      background: $btn-default-color;
+      border-radius: $border-radius;
+      margin-right: 5px;
+      @include media-screen($tablet) {
+        margin-bottom: 10px;
+      }
+      @include media-screen($mobile) {
+        min-width: 100px;
+        text-align: center;
+        margin: 0 5px 15px;
+      }
+      .mat-button-toggle-label-content {
+        font-size: 1.3rem;
+        line-height: 30px;
+      }
+      &:hover,
+      &:active,
+      &.mat-button-toggle-checked {
+        background: $palette-color-1;
+      }
+      &.cdk-focused {
+        .mat-button-toggle-focus-overlay {
+          background-color: rgba(0, 0, 0, .05);
+        }
+      }
+
+    }
+  }
+}
+
+.simple-link {
+  font-size: 1.5rem;
+  color: $palette-color-1;
+  background: transparent;
+  &:hover {
+    color: $palette-color-1--2;
+  }
+}
+
+span.simple-link {
+  display: block;
+}
+
+.edit-btn,
+.update-btn,
+.close-btn {
+  font-size: 2rem;
+  color: $text-color;
+  background: none;
+  padding: 1rem;
+}
+
+.update-btn {
+  color: $palette-color-2;
+}
+
+.close-btn {
+  color: $error-color;
+}

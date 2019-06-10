@@ -1,0 +1,105 @@
+@import 'variables';
+@import 'mixin';
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+
+  @include media-screen($mobile) {
+    font-size: 55%;
+  }
+}
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  -webkit-text-size-adjust: none;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  height: auto;
+  font: $base-font-size / 1.4 $base-font;
+  letter-spacing: .8px;
+  color: $text-color;
+  margin: 0;
+  * {
+    box-sizing: border-box;
+  }
+
+  @include media-screen($mobile) {
+    font-size: $mobile-font-size;
+  }
+}
+
+a {
+  color: $text-color;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  transition: $transition;
+  &:hover {
+    text-decoration: none;
+  }
+
+  @include media-screen($mobile) {
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+button {
+  letter-spacing: 1.2px;
+  border: none;
+  transition: $transition;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="password"] {
+  font: caption;
+  letter-spacing: 1px;
+}
+
+img,
+svg,
+svg-icon-sprite {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+svg-icon-sprite {
+  color: currentColor;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+}
+
+h3 {
+  font-size: 2.6rem;
+}
+
+p {
+  font-size: $desktop-font-size;
+
+  @include media-screen($mobile) {
+    font-size: $mobile-font-size;
+  }
+}

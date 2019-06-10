@@ -1,0 +1,12 @@
+// Base styles
+@import "scss/variables";
+@import "scss/fonts";
+@import "scss/mixin";
+@import "scss/theme";
+@import "scss/base";
+@import "scss/common";
+
+// Partials styles
+@import "scss/partials/forms";
+@import "scss/partials/buttons";
+@import "scss/partials/auth-page";

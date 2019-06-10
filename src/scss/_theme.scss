@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+@import 'custom-palette';
+
+@include mat-core();
+
+$custom-theme-primary: mat-palette($custom-white);
+$custom-theme-accent: mat-palette($custom-pink, A200, A100, A400);
+$custom-theme-warn: mat-palette($mat-red);
+$custom-theme: mat-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+$custom-light-theme-primary: mat-palette($custom-grey);
+$custom-light-theme-accent: mat-palette($custom-light-grey, A200, A100, A400);
+$custom-light-theme-warn: mat-palette($mat-red);
+$custom-light-theme: mat-light-theme($custom-light-theme-primary, $custom-light-theme-accent, $custom-light-theme-warn);
+
+@include angular-material-theme($custom-theme);
+
+.light-theme {
+     @include angular-material-theme($custom-light-theme);
+}
+
+@include mat-dialog-theme($custom-light-theme);
+@include mat-snack-bar-theme($custom-light-theme);
+
+

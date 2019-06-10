@@ -1,0 +1,77 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixin';
+
+
+.menu-holder {
+  border-radius: $border-radius;
+  background: $white-color;
+  box-shadow: 0 0 50px -10px lighten($text-color, 10%);
+  position: absolute;
+  z-index: 2;
+}
+
+.triangle {
+  height: 0;
+  width: 0;
+  border-width: 0 14px 10px;
+  border-style: solid;
+  border-color: transparent transparent $white-color;
+  margin: 0 auto;
+  position: absolute;
+}
+
+.menu {
+  color: $text-color;
+  @include media-screen($mobile) {
+    width: 200px !important;
+  }
+  &__item {
+    overflow: hidden;
+    &:first-child {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+    &:last-child {
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+  &__link {
+    display: flex;
+    justify-content: flex-start;
+    font-size: $desktop-font-size;
+    padding: 2rem;
+    &:hover,
+    &:active {
+      background: $border-light-color;
+    }
+  }
+  &__icon {
+    min-width: 2.2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+}
+
+.menu-overlay {
+  width: 200%;
+  height: 150%;
+  position: absolute;
+  @include translate-to-center();
+  z-index: 1;
+}
+
+.help-menu {
+  @include media-screen($mobile) {
+    bottom: 130% !important;
+    right: -55% !important;
+    .triangle {
+      bottom: -10px !important;
+      left: 20px !important;
+      transform: rotate(180deg) !important;
+    }
+  }
+}
